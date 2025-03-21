@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import {
-  ReactFlow,
-  Background,
-} from '@xyflow/react'; // Importing ReactFlow and Background components from the React Flow library
-import '@xyflow/react/dist/style.css'; // Importing the required styles for React Flow
-import { nodeTypes } from './nodes/NodeTypes'; // Importing custom node types for React Flow
-import dummyData from '../data/cards.json'; // Importing dummy data for the flow
+import React, { useState, useEffect } from "react";
+import { ReactFlow, Background } from "@xyflow/react"; // Importing ReactFlow and Background components from the React Flow library
+import "@xyflow/react/dist/style.css"; // Importing the required styles for React Flow
+import { nodeTypes } from "./nodes/NodeTypes"; // Importing custom node types for React Flow
+import dummyData from "../data/cards.json"; // Importing dummy data for the flow
 
 /**
  * ViewMode Component
@@ -14,9 +11,9 @@ import dummyData from '../data/cards.json'; // Importing dummy data for the flow
  */
 const ViewMode: React.FC = () => {
   // State to manage the nodes in the flow
-  const [nodes, setNodes] = useState([]);
+  const [nodes, setNodes] = useState<any[]>([]);
   // State to manage the edges in the flow
-  const [edges, setEdges] = useState([]);
+  const [edges, setEdges] = useState<any[]>([]);
 
   // useEffect hook to fetch and set flow data when the component mounts
   useEffect(() => {
@@ -35,7 +32,7 @@ const ViewMode: React.FC = () => {
         setEdges(data.edges);
       } catch (error) {
         // Logging any errors that occur during data fetching
-        console.error('Error loading flow data:', error);
+        console.error("Error loading flow data:", error);
       }
     };
 

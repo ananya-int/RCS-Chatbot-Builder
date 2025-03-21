@@ -136,11 +136,11 @@ const FlowBuilder: React.FC = () => {
           
           // Connect carousel to its rich cards
           data.carouselCards.forEach((carousel: CarouselCardData) => {
-            carousel.cards.forEach((cardId: string) => {
+            carousel.cards.forEach((card: RichCardData) => {
               sampleEdges.push({
-                id: `${carousel.id}-to-${cardId}`,
-                source: carousel.id,
-                target: cardId,
+                id: `${carousel.id}-to-${card.id}`,
+                source: carousel.id as string,
+                target: card.id,
               });
             });
           });
