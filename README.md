@@ -1,12 +1,13 @@
-# ReactFlow Card Builder
+# RCS-Chatbot-Builder
+
 
 ## Project Overview
 
-ReactFlow Card Builder is a powerful visual editor for creating and managing chatbot conversation flows. Built with React, TypeScript, and @xyflow/react, this tool enables designers and developers to visually construct complex chatbot interactions through a drag-and-drop interface. The application features customizable card components that can be connected to define conversation paths, with real-time editing and automatic saving to ensure your work is always preserved.
+RCS-Chatbot-Builder is a powerful visual editor for creating and managing chatbot conversation flows. Built with React, TypeScript, and @xyflow/react, this tool enables designers and developers to visually construct complex chatbot interactions through a connected flow. The application features customizable card components that can be connected to define conversation paths, with real-time editing and automatic saving to ensure your work is always preserved.
 
 ## Key Features
 
-- **Visual Flow Editor**: Intuitive drag-and-drop interface for creating conversation flows
+- **Visual Flow Editor**: React Flow for creating and connecting cards
 - **Multiple Card Types**:
   - **Rich Cards**: Single message cards with text, image, and action capabilities
   - **Carousel Cards**: Container cards that hold multiple swipeable cards
@@ -56,7 +57,7 @@ npm start
 yarn start
 ```
 
-4. Open your browser and navigate to `http://localhost:3000`
+4. Open your browser and navigate to `http://localhost:5173`
 
 ## Implementation Details
 
