@@ -1,12 +1,11 @@
-// src/components/nodes/CarouselCard.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Handle, Position, NodeProps } from '@xyflow/react';
 import { CarouselCardData, RichCardData, ButtonData } from '../../types/CardTypes';
 
 // Import shadcn components
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel';
+import { Carousel, CarouselContent, CarouselItem} from '../ui/carousel';
 import { AppWindowMac, Plus, PlusCircle, Upload } from 'lucide-react';
 import { Textarea } from '../ui/textarea';
 import { Input } from '../ui/input';
@@ -52,10 +51,6 @@ const CarouselCard: React.FC<NodeProps> = ({ data, id, isConnectable }) => {
   const cardData = data as CarouselCardData;
   const [cards, setCards] = useState<RichCardData[]>(cardData.cards || []);
 
-  console.log("cardData", cardData);
-  console.log("cards", cards);
-
-
   // Add new card to carousel
   const addCard = async () => {
     try {
@@ -96,9 +91,6 @@ const CarouselCard: React.FC<NodeProps> = ({ data, id, isConnectable }) => {
           }
           return node;
         });
-
-        console.log("updatedNodes", updatedNodes);
-        
         
         flowState.nodes = updatedNodes;
         

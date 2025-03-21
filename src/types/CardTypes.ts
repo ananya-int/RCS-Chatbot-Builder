@@ -1,5 +1,3 @@
-// src/types/CardTypes.ts
-
 export interface ButtonData {
 	id: string;
 	label: string;

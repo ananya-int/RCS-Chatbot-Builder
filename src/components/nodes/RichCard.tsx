@@ -1,4 +1,3 @@
-// src/components/nodes/RichCard.tsx
 import React, { useState } from 'react';
 import { Handle, Position, NodeProps } from '@xyflow/react';
 import { RichCardData, ButtonData } from '../../types/CardTypes';
@@ -34,7 +33,6 @@ const RichCard: React.FC<NodeProps> = ({ data, id, isConnectable }) => {
     }
     autoSave();
   };
-console.log("imageUrl", imageUrl);
   // Start editing action title
   const startEditingTitle = (actionId: string, currentTitle: string = '') => {
     setEditingActionId(actionId);
@@ -83,10 +81,7 @@ console.log("imageUrl", imageUrl);
     try {
       const flowStateStr = localStorage.getItem('chatbot-flow-state');
       if (flowStateStr) {
-        const flowState = JSON.parse(flowStateStr);
-
-        console.log("cardData", cardData); // Add this line for debugging
-        
+        const flowState = JSON.parse(flowStateStr);        
         // Update the specific node
         const updatedNodes = flowState.nodes.map((node: any) => {
           if (node.id === id) {
@@ -103,8 +98,6 @@ console.log("imageUrl", imageUrl);
           }
           return node;
         });
-
-        console.log("updatedNodes", updatedNodes); // Add this line for debugging
         
         // Save updated flow state
         const updatedFlowState = {

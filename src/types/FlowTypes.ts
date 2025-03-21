@@ -1,4 +1,3 @@
-// src/types/FlowTypes.ts
 import { Node, Edge } from '@xyflow/react';
 import { RichCardData, CarouselCardData } from './CardTypes';
 

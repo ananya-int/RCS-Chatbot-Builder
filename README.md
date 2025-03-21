@@ -1,119 +1,135 @@
-# React + TypeScript + Vite
+# ReactFlow Card Builder
 
-This project is a template that provides a minimal setup to get React working with Vite, TypeScript, and HMR (Hot Module Replacement). It also includes some ESLint rules for code quality and consistency.
+## Project Overview
 
-## Features
+ReactFlow Card Builder is a powerful visual editor for creating and managing chatbot conversation flows. Built with React, TypeScript, and @xyflow/react, this tool enables designers and developers to visually construct complex chatbot interactions through a drag-and-drop interface. The application features customizable card components that can be connected to define conversation paths, with real-time editing and automatic saving to ensure your work is always preserved.
 
-- **React**: A JavaScript library for building user interfaces.
-- **TypeScript**: A strongly typed programming language that builds on JavaScript.
-- **Vite**: A fast build tool and development server.
-- **HMR**: Hot Module Replacement for faster development.
-- **ESLint**: Configured with rules to ensure code quality and consistency.
+## Key Features
 
-## Plugins
+- **Visual Flow Editor**: Intuitive drag-and-drop interface for creating conversation flows
+- **Multiple Card Types**:
+  - **Rich Cards**: Single message cards with text, image, and action capabilities
+  - **Carousel Cards**: Container cards that hold multiple swipeable cards
+- **Interactive Connections**: Visually connect cards to define conversation paths
+- **Action Management**: Add and configure actions that branch to different paths
+- **Real-time Editing**: All changes are immediately reflected in the editor
+- **Auto-save**: Automatic saving to localStorage to prevent data loss
+- **Responsive Design**: Works across various device sizes and screen resolutions
 
-This template supports two official Vite plugins for React:
+## Technical Stack
 
-1. [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md): Uses [Babel](https://babeljs.io/) for Fast Refresh.
-2. [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc): Uses [SWC](https://swc.rs/) for Fast Refresh.
-
-## Expanding the ESLint Configuration
-
-For production applications, it is recommended to enable type-aware lint rules for better code quality. Below is an example configuration:
-
-### Type-Aware ESLint Configuration
-
-```js
-// eslint.config.js
-export default tseslint.config({
-  extends: [
-    // Replace ...tseslint.configs.recommended with one of the following:
-    ...tseslint.configs.recommendedTypeChecked, // Recommended type-aware rules
-    ...tseslint.configs.strictTypeChecked, // Stricter rules for better type safety
-    ...tseslint.configs.stylisticTypeChecked, // Optional stylistic rules
-  ],
-  languageOptions: {
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'], // Specify your TypeScript config files
-      tsconfigRootDir: import.meta.dirname, // Set the root directory for TypeScript configs
-    },
-  },
-})
-```
-
-### Adding React-Specific ESLint Plugins
-
-You can enhance your linting setup by adding React-specific plugins:
-
-1. [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x): Provides additional lint rules for React.
-2. [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom): Adds lint rules for React DOM.
-
-Example configuration:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    'react-x': reactX, // React-specific lint rules
-    'react-dom': reactDom, // React DOM-specific lint rules
-  },
-  rules: {
-    ...reactX.configs['recommended-typescript'].rules, // Recommended TypeScript rules for React
-    ...reactDom.configs.recommended.rules, // Recommended rules for React DOM
-  },
-})
-```
+- **Frontend Framework**: React 18+ with TypeScript
+- **Flow Visualization**: @xyflow/react (formerly ReactFlow)
+- **UI Components**: Custom implementation based on shadcn/ui
+- **Styling**: Tailwind CSS for responsive and customizable design
+- **State Management**: React Hooks (useState, useEffect, useCallback)
+- **Storage**: localStorage for persistent data
+- **Build Tool**: Create React App / Vite
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js (v14.0.0 or higher)
+- npm (v6.0.0 or higher) or Yarn (v1.22.0 or higher)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+
+### Installation
+
 1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd chatbot
-   ```
+```bash
+git clone https://github.com/yourusername/reactflow-card-builder.git
+cd reactflow-card-builder
+```
 
 2. Install dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+# or
+yarn install
+```
 
 3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Build for production:
-   ```bash
-   npm run build
-   ```
-
-5. Preview the production build:
-   ```bash
-   npm run preview
-   ```
-
-## Folder Structure
-
-```
-chatbot/
-├── src/                # Source code
-├── public/             # Static assets
-├── tsconfig.app.json   # TypeScript configuration for the app
-├── tsconfig.node.json  # TypeScript configuration for Node.js
-├── vite.config.ts      # Vite configuration
-└── README.md           # Project documentation
+```bash
+npm start
+# or
+yarn start
 ```
 
-## Additional Resources
+4. Open your browser and navigate to `http://localhost:3000`
 
-- [Vite Documentation](https://vitejs.dev/)
-- [React Documentation](https://reactjs.org/)
-- [TypeScript Documentation](https://www.typescriptlang.org/)
-- [ESLint Documentation](https://eslint.org/)
+## Implementation Details
+
+### Components
+
+#### Carousel Card Node
+
+The Carousel Card is a container component that displays multiple cards in a swipeable interface:
+
+- **Features**:
+  - Navigation controls to browse through cards
+  - "+ Card" button to add new cards directly to the carousel
+  - Editable title and description fields
+  - Support for action nodes with connection points
+  - Real-time content updates with autosave
+
+- **Implementation**:
+  - Uses the shadcn Carousel component for card navigation
+  - Maintains state for all cards within the carousel
+  - Implements custom navigation and card management logic
+  - Automatically persists changes to localStorage
+
+#### Rich Card Node
+
+The Rich Card represents a single message in the conversation flow:
+
+- **Features**:
+  - Editable title and description
+  - Image upload placeholder
+  - Configurable action buttons
+  - Connection points for defining flow paths
+  - Real-time content updates with autosave
+
+- **Implementation**:
+  - Custom card component with shadcn UI styling
+  - Input fields for direct content editing
+  - Source and target handles for creating connections
+  - State management for local and persistent storage
+
+### Data Management
+
+The application implements a robust data management approach:
+
+- **Card Data Structure**: TypeScript interfaces define the structure of different card types
+- **Flow State**: Maintains the state of all nodes and edges in the flow
+- **Auto-save**: Changes are automatically saved to localStorage using a debounce mechanism
+- **Data Persistence**: Flow state is loaded from localStorage on application startup
+
+### Flow Management
+
+Flow management is handled through @xyflow/react:
+
+- **Node Creation**: Add new nodes through the UI with predefined templates
+- **Connection Management**: Create and delete connections between nodes
+- **Node Positioning**: Drag and drop nodes to position them in the flow
+- **State Handling**: All flow state (nodes, edges, positions) is managed and persisted
+
+## Development Guidelines
+
+When extending or modifying this project:
+
+1. **Component Structure**: Follow the established component structure and patterns
+2. **TypeScript**: Maintain strong typing for all components and data structures
+3. **State Management**: Use React hooks for state management, avoid global state when possible
+4. **UI Consistency**: Adhere to the existing UI patterns and Tailwind classes
+5. **Performance**: Be mindful of performance, especially for larger flows
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+- [@xyflow/react](https://reactflow.dev/) for the flow visualization library
+- [shadcn/ui](https://ui.shadcn.com/) for the UI component patterns
+- [Tailwind CSS](https://tailwindcss.com/) for the styling framework

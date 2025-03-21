@@ -1,10 +1,8 @@
-// src/App.tsx
 import React, { useState } from 'react';
 import {  ReactFlowProvider } from '@xyflow/react';
 import FlowBuilder from './components/FlowBuilder';
-import { Switch } from './components/ui/switch';
-import ViewMode from './components/viewMode';
 import { Button } from './components/ui/button';
+import ViewMode from './components/ViewMode';
 
 /**
  * The `App` component serves as the main entry point for the Chatbot Flow Builder application.

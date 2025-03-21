@@ -1,5 +1,3 @@
-// src/utils/localStorage.ts
-
 import { FlowState } from "@/types/FlowTypes";
 
 const FLOW_STATE_KEY = 'chatbot-flow-state';
